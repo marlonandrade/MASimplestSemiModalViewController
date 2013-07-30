@@ -1,6 +1,6 @@
 //
 //  UIViewController+MASimplestSemiModal.h
-//  MASimplestSemiModelViewControllerDemo
+//  MASimplestSemiModalViewControllerDemo
 //
 //  Created by Marlon Andrade on 30/07/13.
 //  Copyright (c) 2013 Marlon Andrade. All rights reserved.
@@ -10,7 +10,7 @@
 
 @interface UIViewController (MASimplestSemiModal)
 
-- (void)presentSemiView:(UIView *)view;
-- (void)dismissSemiView;
+- (void)ma_presentSemiView:(UIView *)view;
+- (void)ma_dismissSemiView;
 
 @end

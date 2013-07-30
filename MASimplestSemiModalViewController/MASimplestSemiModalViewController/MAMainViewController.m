@@ -1,6 +1,6 @@
 //
 //  MAMainViewController.m
-//  MASimplestSemiModelViewControllerDemo
+//  MASimplestSemiModalViewControllerDemo
 //
 //  Created by Marlon Andrade on 30/07/13.
 //  Copyright (c) 2013 Marlon Andrade. All rights reserved.
@@ -54,7 +54,7 @@
 #pragma mark - Private Interface
 
 - (void)_showSemiModal:(id)sender {
-    [self presentSemiView:self.semiView];
+    [self ma_presentSemiView:self.semiView];
 }
 
 @end

@@ -1,6 +1,6 @@
 //
-//  MASimplestSemiModelViewControllerDemoTests.m
-//  MASimplestSemiModelViewControllerDemoTests
+//  MASimplestSemiModalViewControllerTests.m
+//  MASimplestSemiModalViewControllerTests
 //
 //  Created by Marlon Andrade on 30/07/13.
 //  Copyright (c) 2013 Marlon Andrade. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface MASimplestSemiModelViewControllerDemoTests : XCTestCase
+@interface MASimplestSemiModalViewControllerTests : XCTestCase
 
 @end
 
-@implementation MASimplestSemiModelViewControllerDemoTests
+@implementation MASimplestSemiModalViewControllerTests
 
 - (void)setUp
 {

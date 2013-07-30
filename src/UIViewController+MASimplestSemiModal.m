@@ -1,6 +1,6 @@
 //
 //  UIViewController+MASimplestSemiModal.m
-//  MASimplestSemiModelViewControllerDemo
+//  MASimplestSemiModalViewControllerDemo
 //
 //  Created by Marlon Andrade on 30/07/13.
 //  Copyright (c) 2013 Marlon Andrade. All rights reserved.
@@ -13,7 +13,7 @@
 #define MA_SEMI_MODAL_ANIMATION_DURATION 0.5f
 #define MA_SEMI_MODAL_OVERLAY_ALPHA 0.5f
 
-#define kSemiModalPresentingViewController @"kSemiModelPresentingViewController"
+#define kSemiModalPresentingViewController @"kSemiModalPresentingViewController"
 
 @interface UIViewController (MASimplestSemiView)
 
@@ -26,11 +26,11 @@
 
 #pragma mark - Public Methods
 
-- (void)presentSemiView:(UIView *)view {
+- (void)ma_presentSemiView:(UIView *)view {
     [self _presentSemiView:view completion:NULL];
 }
 
-- (void)dismissSemiView {
+- (void)ma_dismissSemiView {
     UIApplication *app = [UIApplication sharedApplication];
 
     UIViewController *presentingViewController = objc_getAssociatedObject(app, kSemiModalPresentingViewController);
@@ -90,7 +90,7 @@
 }
 
 - (void)_overlayTapRecognized:(UIGestureRecognizer *)gestureRecognizer {
-    [self dismissSemiView];
+    [self ma_dismissSemiView];
 }
 
 @end
