@@ -1,6 +1,6 @@
-# MASimplestSemiModelViewController
+# MASimplestSemiModalViewController
 
-The simplest Semi Model implementation possible.
+The simplest Semi Modal implementation possible.
 Very, very simplified version based on [KNSemiModalViewController](https://github.com/kentnguyen/KNSemiModalViewController).
 
 ## Features (or lack of)
@@ -13,7 +13,7 @@ Very, very simplified version based on [KNSemiModalViewController](https://githu
 
 ## Usage
 
-* Add `MASimplestSemiModelViewController` on your Podfile and install it
+* Add `MASimplestSemiModalViewController` on your Podfile and install it
 * `#import "UIViewController+MASimplestSemiModal.h"'`
 * `[viewController presentSemiView:semiView];`
 
@@ -23,5 +23,5 @@ If you want a better, configurable and complex Semi Modal implementation you sho
 [KNSemiModalViewController](https://github.com/kentnguyen/KNSemiModalViewController), 
 [@kentnguyen](https://github.com/kentnguyen) and the other contributors made a great job on that project.
   
-Even thought I said that it is the simplest Semi Model implementation possible 
+Even thought I said that it is the simplest Semi Modal implementation possible 
 I know that it's not, so fell free to make it simpler.
