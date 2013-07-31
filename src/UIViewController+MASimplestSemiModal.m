@@ -10,8 +10,12 @@
 
 #import <objc/runtime.h>
 
-#define MA_SEMI_MODAL_ANIMATION_DURATION 0.5f
+#define MA_SEMI_MODAL_ANIMATION_DURATION 0.3f
 #define MA_SEMI_MODAL_OVERLAY_ALPHA 0.5f
+#define MA_SEMI_MODAL_SHOW_ANIMATION_DELAY 0
+#define MA_SEMI_MODAL_SHOW_ANIMATION_OPTIONS UIViewAnimationOptionCurveEaseOut
+#define MA_SEMI_MODAL_DISMISS_ANIMATION_DELAY 0
+#define MA_SEMI_MODAL_DISMISS_ANIMATION_OPTIONS UIViewAnimationOptionCurveEaseIn
 
 #define kSemiModalPresentingViewController @"kSemiModalPresentingViewController"
 
@@ -40,15 +44,17 @@
     UIView *overlay = container.subviews[0];
     UIView *semiModal = container.subviews.lastObject;
 
-    [UIView animateWithDuration:MA_SEMI_MODAL_ANIMATION_DURATION animations:^{
-        semiModal.frame = CGRectMake(0.f, target.bounds.size.height,
-                                     semiModal.bounds.size.width, semiModal.bounds.size.height);
-        overlay.alpha = 0.f;
-    } completion:^(BOOL finished) {
-        [container removeFromSuperview];
-
-        objc_setAssociatedObject(app, kSemiModalPresentingViewController, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }];
+    [UIView animateWithDuration:MA_SEMI_MODAL_ANIMATION_DURATION
+                          delay:MA_SEMI_MODAL_DISMISS_ANIMATION_DELAY
+                        options:MA_SEMI_MODAL_DISMISS_ANIMATION_OPTIONS
+                     animations:^{
+                         semiModal.frame = CGRectMake(0.f, target.bounds.size.height,
+                                                      semiModal.bounds.size.width, semiModal.bounds.size.height);
+                         overlay.alpha = 0.f;
+                     } completion:^(BOOL finished) {
+                         [container removeFromSuperview];
+                         objc_setAssociatedObject(app, kSemiModalPresentingViewController, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                     }];
 }
 
 #pragma mark - Private Interface
@@ -79,13 +85,16 @@
 
         [self.view addSubview:container];
 
-        [UIView animateWithDuration:MA_SEMI_MODAL_ANIMATION_DURATION animations:^{
-            overlay.alpha = MA_SEMI_MODAL_ANIMATION_DURATION;
-            view.frame = CGRectMake(0.f, self.view.bounds.size.height - view.bounds.size.height,
-                                    view.bounds.size.width, view.bounds.size.height);
-        } completion:^(BOOL finished) {
-            if (finished && completionBlock) completionBlock();
-        }];
+        [UIView animateWithDuration:MA_SEMI_MODAL_ANIMATION_DURATION
+                              delay:MA_SEMI_MODAL_SHOW_ANIMATION_DELAY
+                            options:MA_SEMI_MODAL_SHOW_ANIMATION_OPTIONS
+                         animations:^{
+                             overlay.alpha = MA_SEMI_MODAL_ANIMATION_DURATION;
+                             view.frame = CGRectMake(0.f, self.view.bounds.size.height - view.bounds.size.height,
+                                                     view.bounds.size.width, view.bounds.size.height);
+                         } completion:^(BOOL finished) {
+                             if (finished && completionBlock) completionBlock();
+                         }];
     }
 }
 
