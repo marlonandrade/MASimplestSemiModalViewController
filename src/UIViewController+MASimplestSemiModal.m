@@ -37,7 +37,7 @@
 
     UIView *target = presentingViewController.view;
     UIView *container = target.subviews.lastObject;
-    UIView *overlay = container.subviews.firstObject;
+    UIView *overlay = container.subviews[0];
     UIView *semiModal = container.subviews.lastObject;
 
     [UIView animateWithDuration:MA_SEMI_MODAL_ANIMATION_DURATION animations:^{
